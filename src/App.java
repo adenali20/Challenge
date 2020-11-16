@@ -13,8 +13,9 @@ public class App {
         String most_used_word = null;
         String last_sentence = "";
         int c;
-        String rootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
+
         try {
+            String rootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
             SentenceReader sentenceReader =
                     new SentenceReader(
                             new FileReader(rootPath + "/passage.txt"));

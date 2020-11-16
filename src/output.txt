@@ -1,9 +1,9 @@
 Total word count : 443
-Last Sentence that contains the word "the" : Closed formats are opague: only the seller is able to tell how much each customer is willing to pay for an object
+Last Sentence that contains the word "the" : closed formats are opague: only the seller is able to tell how much each customer is willing to pay for an object
 Top 10 words used sorted by frequency
 --------------
-{the=17, a=15, price=9, of=13, for=9, is=15, to=10, an=9, auctions=12, object=11}
+{the=18, a=16, in=12, price=9, of=13, for=13, is=15, to=10, auctions=13, object=11}
 
 Top 10 words used sorted alphabetically
 --------------
-[a, an, auctions, for, is, object, of, price, the, to]
+[a, auctions, for, in, is, object, of, price, the, to]

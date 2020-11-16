@@ -25,8 +25,9 @@ public class SentenceReader extends BufferedReader {
                 String retSb=sentence.toString();
                 retSb=retSb.trim();
                 sentence=new StringBuilder();
+
                 retSb=removeTrailingCharacters(retSb);
-            return retSb;
+            return retSb.toLowerCase();
         }
         public static String removeTrailingCharacters(String s) {
             s=s.replace(".","");

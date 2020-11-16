@@ -39,14 +39,16 @@ public class App {
             System.out.println("Total word count : " + total_word_count);
             System.out.println("Last Sentence that contains the word \""+most_used_word+"\" : "+last_sentence);
             System.out.println("Top 10 words used sorted by frequency\n--------------");
-            Map<String, Integer> sortByFrequency = map.entrySet().stream()
-                    .sorted(Map.Entry.<String, Integer>comparingByValue().reversed()).limit(10)
-                    .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-
-            System.out.println(sortByFrequency);
+            Map<String, Integer> result2 = new LinkedHashMap<>();
+            map.entrySet().stream()
+                    .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
+                    .limit(10)
+                    .forEachOrdered(x -> result2.put(x.getKey(), x.getValue()));
+       
+            System.out.println(result2);
 
             System.out.println("\nTop 10 words used sorted alphabetically\n--------------");
-            List<String> sortedAlphabetically=sortByFrequency.entrySet()
+            List<String> sortedAlphabetically=result2.entrySet()
                     .stream()
                     .map(Map.Entry::getKey)
                     .sorted()

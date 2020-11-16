@@ -1,23 +1,30 @@
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FilterReader;
 import java.io.IOException;
 
-public class SentenceReader extends  FilterReader {
-        String sentence="";
-        StringBuilder sb=new StringBuilder();
-        protected SentenceReader(BufferedReader in) {
+public class SentenceReader extends BufferedReader {
+
+        StringBuilder sentence=new StringBuilder();
+        protected SentenceReader(FileReader in) {
             super(in);
         }
         @Override
         public int read() throws IOException {
             int c = super.read();
-            sb.append((char)c);
+            sentence.append((char)c);
             return c;
         }
-        public String getSentence() {
-                String retSb=sb.toString();
+
+//    @Override
+//    public String readLine() throws IOException {
+//        return super.readLine();
+//    }
+
+    public String getSentence() {
+                String retSb=sentence.toString();
                 retSb=retSb.trim();
-                sb=new StringBuilder();
+                sentence=new StringBuilder();
                 retSb=removeTrailingCharacters(retSb);
             return retSb;
         }

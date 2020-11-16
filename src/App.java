@@ -16,8 +16,8 @@ public class App {
         String rootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
         try {
             SentenceReader sentenceReader =
-                    new SentenceReader(new BufferedReader(
-                            new FileReader(rootPath + "/passage.txt")));
+                    new SentenceReader(
+                            new FileReader(rootPath + "/passage.txt"));
             while ((c = sentenceReader.read()) >= 0) {
                 if (endOfSentence.contains((char) c)) {
                     String sentence = sentenceReader.getSentence();
@@ -30,12 +30,9 @@ public class App {
                         if (map.get(word) > max_frequency) {
                             max_frequency = map.get(word);//update
                             most_used_word = word;
+                            last_sentence = sentence;
                         }
                     }
-                    if (sentence.contains(most_used_word)) { //update last sentence
-                        last_sentence = sentence;
-                    }
-
                 }
             }
             System.out.println("Total word count : " + total_word_count);
@@ -44,6 +41,7 @@ public class App {
             Map<String, Integer> sortByFrequency = map.entrySet().stream()
                     .sorted(Map.Entry.<String, Integer>comparingByValue().reversed()).limit(10)
                     .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+
             System.out.println(sortByFrequency);
 
             System.out.println("\nTop 10 words used sorted alphabetically\n--------------");

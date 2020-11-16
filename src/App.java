@@ -44,7 +44,7 @@ public class App {
                     .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
                     .limit(10)
                     .forEachOrdered(x -> result2.put(x.getKey(), x.getValue()));
-       
+
             System.out.println(result2);
 
             System.out.println("\nTop 10 words used sorted alphabetically\n--------------");
